@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/SolveSquare.dir/main.c.o  -o SolveSquare -lm 
