@@ -90,7 +90,7 @@ int SolveSqare(double a, double b, double c, double *x1, double *x2) {
     assert (x2 != NULL);
     assert (x1 != x2);
 
-    if (a == 0) {
+    if (is_zero(a)) {
         int SolveL = SolveLine(b, c, x1);
         if (SolveL == SL_INF_NUMBER) {
             return SS_INF_NUMBER;
@@ -105,9 +105,12 @@ int SolveSqare(double a, double b, double c, double *x1, double *x2) {
             *x1 = -b / (2 * a);
             return 1;
         } else if (D > 0) {
-            *x1 = (-b + sqrt(D)) / (2 * a);
-            *x2 = (-b - sqrt(D)) / (2 * a);
+            D = sqrt(D);
+            *x1 = (-b + D) / (2 * a);
+            *x2 = (-b - D) / (2 * a);
             return 2;
+        } else {
+            return 0;
         }
     }
 }
