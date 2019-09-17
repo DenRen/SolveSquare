@@ -3,8 +3,8 @@
 #include <assert.h>
 #include <stdbool.h>
 
-#define SS_INF_NUMBER 14565
-#define SL_INF_NUMBER 98286
+const int SS_INF_NUMBER = 14565;
+const int SL_INF_NUMBER = 98286;
 
 int SolveSqare(double a, double b, double c, double *x1, double *x2);
 
@@ -56,9 +56,9 @@ int SolveLine(double a, double b, double *x) {
     assert(isfinite(b));
     assert(x != NULL);
 
-    if (a == 0 && b == 0) {
+    if (is_zero(a) && is_zero(b)) {
         return SL_INF_NUMBER;
-    } else if (a == 0) {
+    } else if (is_zero(a)) {
         return 0;
     } else {
         *x = -b / a;
